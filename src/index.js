@@ -1,9 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
+import App from './App.js';
+import { BrowserRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
-function Hello() {
-  return <p>!!Hello Fable!!</p>;
-}
-
-render(<Hello />, document.getElementById("app"));
+render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("app")
+);
