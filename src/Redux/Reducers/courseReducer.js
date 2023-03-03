@@ -5,6 +5,8 @@ export default function courseReducer(state = [], action) {
     case actionTypes.CREATE_COURSE:
       //debugger; //3
       return [...state, { ...action.course }];
+    case actionTypes.LOAD_COURSES_SUCCESS:
+      return action.courses;
     default:
       return state; //error 1 : miss this
   }
