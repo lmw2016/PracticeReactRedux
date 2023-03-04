@@ -30,7 +30,7 @@ class CourseList extends Component {
                   <th>
                     <Link to={"/course/" + course.slug}>{course.title}</Link>
                   </th>
-                  <th>{course.authorId}</th>
+                  <th>{course.authorName}</th>
                   <th>{course.category}</th>
                 </tr>
               );
