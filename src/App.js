@@ -6,11 +6,14 @@ import AboutPage from "./About/AboutPage.js";
 import CoursePage from "./Course/CoursePage.js";
 import PageNotFoundPage from "./PageNotFoundPage";
 import ManageCoursePage from "./Course/ManageCoursePage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
+        <ToastContainer autoClose={2000} hideProgressBar />
         <Header />
         <Switch>
           <Route path="/" exact component={HomePage} />
