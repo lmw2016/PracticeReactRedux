@@ -13,6 +13,7 @@ class CourseList extends Component {
               <th>Title</th>
               <th>Author</th>
               <th>Category</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -32,6 +33,12 @@ class CourseList extends Component {
                   </th>
                   <th>{course.authorName}</th>
                   <th>{course.category}</th>
+                  <th
+                    className="btn btn-outline-danger"
+                    onClick={() => this.props.onDeleteClick(course)}
+                  >
+                    Delete
+                  </th>
                 </tr>
               );
             })}
@@ -44,6 +51,7 @@ class CourseList extends Component {
 
 CourseList.propTypes = {
   courses: PropTypes.array.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
 };
 
 export default CourseList;

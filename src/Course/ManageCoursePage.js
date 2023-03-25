@@ -46,8 +46,8 @@ function ManageCoursePage({
 
   function handleSave(event) {
     event.preventDefault();
+    if (!formIsValid()) return;
     setSaving(true);
-    if (!formIsValid) return;
     saveCourse(course)
       .then(() => {
         toast.success("coursed saved!!");
@@ -59,7 +59,14 @@ function ManageCoursePage({
       });
   }
   function formIsValid() {
-    //setErrors({});
+    const { title, authorId, category } = course;
+    const errors = {};
+    debugger;
+    if (!title) errors.title = "title is required";
+    if (!authorId) errors.author = "author is required";
+    if (!category) errors.category = "category is required";
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
   }
 
   return (

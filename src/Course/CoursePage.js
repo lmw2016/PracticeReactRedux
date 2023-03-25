@@ -5,6 +5,7 @@ import * as authorActions from "../Redux/Actions/authorAction";
 import PropTypes from "prop-types";
 import CourseList from "./CourseList";
 import { Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
 
 class CoursePage extends React.Component {
   state = {
@@ -26,6 +27,13 @@ class CoursePage extends React.Component {
     }
   }
 
+  handleDeleteCourse = (course) => {
+    toast.success("coursed deleted!");
+    this.props.deleteCourse(course).catch(() => {
+      toast.error("coursed deletion failed!");
+    });
+  };
+
   render() {
     return (
       <>
@@ -42,7 +50,10 @@ class CoursePage extends React.Component {
             >
               Add Course
             </button>
-            <CourseList courses={this.props.courses} />
+            <CourseList
+              onDeleteClick={this.handleDeleteCourse}
+              courses={this.props.courses}
+            />
           </>
         )}
       </>
@@ -56,6 +67,7 @@ CoursePage.propTypes = {
   loadAuthors: PropTypes.func.isRequired,
   authors: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
+  deleteCourse: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -86,6 +98,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   loadCourses: courseActions.loadCourses,
   loadAuthors: authorActions.loadAuthors,
+  deleteCourse: courseActions.deleteCourse,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);
