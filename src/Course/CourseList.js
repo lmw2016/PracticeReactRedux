@@ -17,31 +17,29 @@ class CourseList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.courses.map((course) => {
-              return (
-                <tr key={course.id}>
-                  <th>
-                    <a
-                      className="btn btn-light"
-                      href={"http://pluralsight.com/courses/" + course.slug}
-                    >
-                      Watch
-                    </a>
-                  </th>
-                  <th>
-                    <Link to={"/course/" + course.slug}>{course.title}</Link>
-                  </th>
-                  <th>{course.authorName}</th>
-                  <th>{course.category}</th>
-                  <th
-                    className="btn btn-outline-danger"
-                    onClick={() => this.props.onDeleteClick(course)}
+            {this.props.courses.map((course) => (
+              <tr key={course.id}>
+                <th>
+                  <a
+                    className="btn btn-light"
+                    href={"http://pluralsight.com/courses/" + course.slug}
                   >
-                    Delete
-                  </th>
-                </tr>
-              );
-            })}
+                    Watch
+                  </a>
+                </th>
+                <th>
+                  <Link to={"/course/" + course.slug}>{course.title}</Link>
+                </th>
+                <th>{course.authorName}</th>
+                <th>{course.category}</th>
+                <th
+                  className="btn btn-outline-danger"
+                  onClick={() => this.props.onDeleteClick(course)}
+                >
+                  Delete
+                </th>
+              </tr>
+            ))}
           </tbody>
         </table>
       </>
