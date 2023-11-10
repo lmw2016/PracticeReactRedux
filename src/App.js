@@ -8,6 +8,7 @@ import PageNotFoundPage from "./PageNotFoundPage";
 import ManageCoursePage from "./Course/ManageCoursePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PerformancePage from "./Performance/performancePage.js";
 
 class App extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/courses" component={CoursePage} />
+          <Route path="/perfomances" component={PerformancePage} />
           <Route path="/course/:slug" component={ManageCoursePage} />
           <Route path="/course" component={ManageCoursePage} />
           <Route path="/about" component={AboutPage} />
