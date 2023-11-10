@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class PerformanceList extends Component {
   render() {
@@ -23,9 +24,11 @@ class PerformanceList extends Component {
                 <th>{index + 1}</th>
                 <th>{new Date(perf.flyDate).toLocaleString()}</th>
                 <th>
-                  {/* <Link to={"/performance/" + perf.mktCarrierFlyNum}>
+                  {
+                    <Link to={"/performance/" + perf.mktCarrierFlyNum}>
                       {perf.mktCarrierFlyNum}
-                    </Link> */}
+                    </Link>
+                  }
                 </th>
                 <th>{perf.mktCarrier}</th>
                 <th>{perf.originCity}</th>
