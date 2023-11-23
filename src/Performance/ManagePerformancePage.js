@@ -26,7 +26,7 @@ const ManagePerformancePage = ({
       <h3>Performance Detail</h3>
       {performance.mktCarrierFlyNum}
       {" | "}
-      {performance.flyDate.toLocaleString()}
+      {new Date(performance.flyDate).toLocaleString()}
       {" | "}
       {performance.originCity}
       {" | "}
