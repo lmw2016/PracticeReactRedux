@@ -9,6 +9,7 @@ import ManageCoursePage from "./Course/ManageCoursePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PerformancePage from "./Performance/performancePage.js";
+import ManagePerformancePage from "./Performance/ManagePerformancePage.js";
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,10 @@ class App extends React.Component {
           <Route path="/courses" component={CoursePage} />
           <Route path="/perfomances" component={PerformancePage} />
           <Route path="/course/:slug" component={ManageCoursePage} />
+          <Route
+            path="/performance/:mktCarrierFlyNum"
+            component={ManagePerformancePage}
+          />
           <Route path="/course" component={ManageCoursePage} />
           <Route path="/about" component={AboutPage} />
           <Route component={PageNotFoundPage} />
